@@ -19,9 +19,10 @@ const Navigation = () => {
 
   const navItems = [
     { name: 'Home', href: '/' },
-    { name: 'Committees and Issues', href: '/committeesAndIssues' },
+    { name: 'Committees and topics', href: '/committeesAndIssues' },
     { name: 'Training Manual', href: '/trainingManual' },
-  
+    { name: 'AISMUN I High board', href: '/team' },
+    { name: 'Our Theme', href: '/ourTheme' },
     // { name: 'Contact', href: '#contact' },
   ];
 

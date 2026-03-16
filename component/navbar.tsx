@@ -20,7 +20,7 @@ const Navigation = () => {
   const navItems = [
     { name: 'Home', href: '/' },
     { name: 'Committees and topics', href: '/committeesAndIssues' },
-    { name: 'Training Manual', href: '/trainingManual' },
+    { name: 'Conference manual', href: '/trainingManual' },
     { name: 'AISMUN I High board', href: '/team' },
     { name: 'Our Theme', href: '/ourTheme' },
     // { name: 'Contact', href: '#contact' },

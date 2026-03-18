@@ -380,9 +380,9 @@ const CommitteesSection = () => {
             className="flex flex-col justify-center py-20 md:py-32 bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden min-h-screen"
         >
             <Navigation />
+            <img src={"/committeesAndIssues3.jpeg"} />           
             <img src={"/committeesAndIssues1.jpeg"} />
             <img src={"/committeesAndIssues2.jpeg"} />
-            <img src={"/committeesAndIssues3.jpeg"} />
   
        
         </section>

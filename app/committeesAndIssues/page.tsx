@@ -151,229 +151,240 @@ const CommitteesSection = () => {
     };
 
     return (
-        <section
-            ref={ref}
-            id="committees"
-            className="relative py-32 bg-gradient-to-b from-gray-950 via-slate-950 to-gray-950 overflow-hidden"
-        >
-            <Navigation />
-            {/* Animated Background */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                {[...Array(6)].map((_, i) => (
-                    <motion.div
-                        key={i}
-                        className="absolute rounded-full blur-3xl opacity-10"
-                        style={{
-                            background: `radial-gradient(circle, ${['#3b82f6', '#ef4444', '#10b981', '#f59e0b', '#8b5cf6', '#ec4899'][i]} 0%, transparent 70%)`,
-                            width: Math.random() * 500 + 300,
-                            height: Math.random() * 500 + 300,
-                            left: `${Math.random() * 100}%`,
-                            top: `${Math.random() * 100}%`,
-                        }}
-                        animate={{
-                            x: [0, 60, 0],
-                            y: [0, 40, 0],
-                            scale: [1, 1.3, 1],
-                        }}
-                        transition={{
-                            duration: Math.random() * 15 + 15,
-                            repeat: Infinity,
-                            ease: "easeInOut"
-                        }}
-                    />
-                ))}
+        // <section
+        //     ref={ref}
+        //     id="committees"
+        //     className="relative py-32 bg-gradient-to-b from-gray-950 via-slate-950 to-gray-950 overflow-hidden"
+        // >
+        //     <Navigation />
+        //     {/* Animated Background */}
+        //     <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        //         {[...Array(6)].map((_, i) => (
+        //             <motion.div
+        //                 key={i}
+        //                 className="absolute rounded-full blur-3xl opacity-10"
+        //                 style={{
+        //                     background: `radial-gradient(circle, ${['#3b82f6', '#ef4444', '#10b981', '#f59e0b', '#8b5cf6', '#ec4899'][i]} 0%, transparent 70%)`,
+        //                     width: Math.random() * 500 + 300,
+        //                     height: Math.random() * 500 + 300,
+        //                     left: `${Math.random() * 100}%`,
+        //                     top: `${Math.random() * 100}%`,
+        //                 }}
+        //                 animate={{
+        //                     x: [0, 60, 0],
+        //                     y: [0, 40, 0],
+        //                     scale: [1, 1.3, 1],
+        //                 }}
+        //                 transition={{
+        //                     duration: Math.random() * 15 + 15,
+        //                     repeat: Infinity,
+        //                     ease: "easeInOut"
+        //                 }}
+        //             />
+        //         ))}
 
-                <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:80px_80px]" />
-            </div>
+        //         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:80px_80px]" />
+        //     </div>
 
-            <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Section Header */}
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.6 }}
-                    className="text-center mb-20"
-                >
-                    <motion.div
-                        initial={{ scaleX: 0 }}
-                        animate={isInView ? { scaleX: 1 } : {}}
-                        transition={{ duration: 0.8 }}
-                        className="w-24 h-1 bg-gradient-to-r from-red-500 to-orange-500 mx-auto mb-6"
-                    />
+        //     <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+        //         {/* Section Header */}
+        //         <motion.div
+        //             initial={{ opacity: 0, y: 30 }}
+        //             animate={isInView ? { opacity: 1, y: 0 } : {}}
+        //             transition={{ duration: 0.6 }}
+        //             className="text-center mb-20"
+        //         >
+        //             <motion.div
+        //                 initial={{ scaleX: 0 }}
+        //                 animate={isInView ? { scaleX: 1 } : {}}
+        //                 transition={{ duration: 0.8 }}
+        //                 className="w-24 h-1 bg-gradient-to-r from-red-500 to-orange-500 mx-auto mb-6"
+        //             />
 
-                    <motion.span
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={isInView ? { opacity: 1, y: 0 } : {}}
-                        transition={{ duration: 0.5, delay: 0.1 }}
-                        className="inline-block px-4 py-1 rounded-full bg-red-500/10 border border-red-500/30 text-red-400 text-sm font-medium tracking-wider uppercase mb-4"
-                    >
-                        9 Committees
-                    </motion.span>
+        //             <motion.span
+        //                 initial={{ opacity: 0, y: 20 }}
+        //                 animate={isInView ? { opacity: 1, y: 0 } : {}}
+        //                 transition={{ duration: 0.5, delay: 0.1 }}
+        //                 className="inline-block px-4 py-1 rounded-full bg-red-500/10 border border-red-500/30 text-red-400 text-sm font-medium tracking-wider uppercase mb-4"
+        //             >
+        //                 9 Committees
+        //             </motion.span>
 
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={isInView ? { opacity: 1, y: 0 } : {}}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6"
-                    >
-                        Explore Our{' '}
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500">
-                            Committees
-                        </span>
-                    </motion.h2>
+        //             <motion.h2
+        //                 initial={{ opacity: 0, y: 20 }}
+        //                 animate={isInView ? { opacity: 1, y: 0 } : {}}
+        //                 transition={{ duration: 0.6, delay: 0.2 }}
+        //                 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6"
+        //             >
+        //                 Explore Our{' '}
+        //                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500">
+        //                     Committees
+        //                 </span>
+        //             </motion.h2>
 
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={isInView ? { opacity: 1, y: 0 } : {}}
-                        transition={{ duration: 0.6, delay: 0.3 }}
-                        className="text-xl text-gray-400 max-w-3xl mx-auto"
-                    >
-                        From the Security Council to specialized agencies, find your platform to debate, negotiate, and resolve global challenges
-                    </motion.p>
-                </motion.div>
+        //             <motion.p
+        //                 initial={{ opacity: 0, y: 20 }}
+        //                 animate={isInView ? { opacity: 1, y: 0 } : {}}
+        //                 transition={{ duration: 0.6, delay: 0.3 }}
+        //                 className="text-xl text-gray-400 max-w-3xl mx-auto"
+        //             >
+        //                 From the Security Council to specialized agencies, find your platform to debate, negotiate, and resolve global challenges
+        //             </motion.p>
+        //         </motion.div>
 
-                {/* Committees Grid */}
-                <motion.div
-                    variants={containerVariants}
-                    initial="hidden"
-                    animate={isInView ? "visible" : "hidden"}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
-                >
-                    {committees.map((committee) => {
-                        const isHovered = hoveredId === committee.id;
-                        const isSelected = selectedCommittee === committee.id;
-                        const Icon = committee.icon;
+        //         {/* Committees Grid */}
+        //         <motion.div
+        //             variants={containerVariants}
+        //             initial="hidden"
+        //             animate={isInView ? "visible" : "hidden"}
+        //             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+        //         >
+        //             {committees.map((committee) => {
+        //                 const isHovered = hoveredId === committee.id;
+        //                 const isSelected = selectedCommittee === committee.id;
+        //                 const Icon = committee.icon;
 
-                        return (
-                            <motion.div
-                                key={committee.id}
-                                variants={cardVariants}
-                                onMouseEnter={() => setHoveredId(committee.id)}
-                                onMouseLeave={() => setHoveredId(null)}
-                                onClick={() => setSelectedCommittee(isSelected ? null : committee.id)}
-                                className="group relative cursor-pointer"
-                            >
-                                <div className={`relative overflow-hidden rounded-2xl border ${committee.borderColor} bg-gray-900/50 backdrop-blur-sm transition-all duration-500 hover:shadow-2xl ${isSelected ? 'ring-2 ring-red-500/50' : ''}`}>
+        //                 return (
+        //                     <motion.div
+        //                         key={committee.id}
+        //                         variants={cardVariants}
+        //                         onMouseEnter={() => setHoveredId(committee.id)}
+        //                         onMouseLeave={() => setHoveredId(null)}
+        //                         onClick={() => setSelectedCommittee(isSelected ? null : committee.id)}
+        //                         className="group relative cursor-pointer"
+        //                     >
+        //                         <div className={`relative overflow-hidden rounded-2xl border ${committee.borderColor} bg-gray-900/50 backdrop-blur-sm transition-all duration-500 hover:shadow-2xl ${isSelected ? 'ring-2 ring-red-500/50' : ''}`}>
 
-                                    {/* Gradient Header */}
-                                    <div className={`relative h-54 bg-gradient-to-r ${committee.color} p-6 overflow-hidden`}>
-                                        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] bg-[size:20px_20px]" />
+        //                             {/* Gradient Header */}
+        //                             <div className={`relative h-54 bg-gradient-to-r ${committee.color} p-6 overflow-hidden`}>
+        //                                 <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] bg-[size:20px_20px]" />
 
-                                        <motion.div
-                                            className="absolute right-4 top-4 w-20 h-20 text-white/20"
-                                            animate={{
-                                                rotate: isHovered ? 360 : 0,
-                                                scale: isHovered ? 1.2 : 1
-                                            }}
-                                            transition={{ duration: 0.8 }}
-                                        >
-                                            <Icon className="w-full h-full" strokeWidth={1} />
-                                        </motion.div>
+        //                                 <motion.div
+        //                                     className="absolute right-4 top-4 w-20 h-20 text-white/20"
+        //                                     animate={{
+        //                                         rotate: isHovered ? 360 : 0,
+        //                                         scale: isHovered ? 1.2 : 1
+        //                                     }}
+        //                                     transition={{ duration: 0.8 }}
+        //                                 >
+        //                                     <Icon className="w-full h-full" strokeWidth={1} />
+        //                                 </motion.div>
 
-                                        <div className="relative z-10">
-                                            <motion.div
-                                                className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm mb-3"
-                                                animate={{ y: isHovered ? -5 : 0 }}
-                                            >
-                                                <Icon className="w-6 h-6 text-white" />
-                                            </motion.div>
+        //                                 <div className="relative z-10">
+        //                                     <motion.div
+        //                                         className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm mb-3"
+        //                                         animate={{ y: isHovered ? -5 : 0 }}
+        //                                     >
+        //                                         <Icon className="w-6 h-6 text-white" />
+        //                                     </motion.div>
 
-                                            <h3 className="text-2xl font-bold text-white">{committee.name}</h3>
-                                            <p className="text-white/80 text-sm font-medium">{committee.fullName}</p>
-                                        </div>
+        //                                     <h3 className="text-2xl font-bold text-white">{committee.name}</h3>
+        //                                     <p className="text-white/80 text-sm font-medium">{committee.fullName}</p>
+        //                                 </div>
 
-                                        <motion.div
-                                            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12"
-                                            initial={{ x: '-200%' }}
-                                            animate={{ x: isHovered ? '200%' : '-200%' }}
-                                            transition={{ duration: 0.8 }}
-                                        />
-                                    </div>
+        //                                 <motion.div
+        //                                     className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12"
+        //                                     initial={{ x: '-200%' }}
+        //                                     animate={{ x: isHovered ? '200%' : '-200%' }}
+        //                                     transition={{ duration: 0.8 }}
+        //                                 />
+        //                             </div>
 
-                                    <div className="p-6">
-                                        <div className="mb-4">
-                                            <div className="flex items-center gap-2 text-gray-400 text-sm mb-2">
-                                                <Gavel className="w-4 h-4" />
-                                                <span className="uppercase tracking-wider font-semibold">Chairs</span>
-                                            </div>
-                                            <div className="flex flex-wrap gap-2">
-                                                {committee.chairs.map((chair, idx) => (
-                                                    <span
-                                                        key={idx}
-                                                        className={`px-3 py-1 rounded-full text-sm font-medium ${committee.bgColor} text-white border ${committee.borderColor}`}
-                                                    >
-                                                        {chair}
-                                                    </span>
-                                                ))}
-                                            </div>
-                                        </div>
+        //                             <div className="p-6">
+        //                                 <div className="mb-4">
+        //                                     <div className="flex items-center gap-2 text-gray-400 text-sm mb-2">
+        //                                         <Gavel className="w-4 h-4" />
+        //                                         <span className="uppercase tracking-wider font-semibold">Chairs</span>
+        //                                     </div>
+        //                                     <div className="flex flex-wrap gap-2">
+        //                                         {committee.chairs.map((chair, idx) => (
+        //                                             <span
+        //                                                 key={idx}
+        //                                                 className={`px-3 py-1 rounded-full text-sm font-medium ${committee.bgColor} text-white border ${committee.borderColor}`}
+        //                                             >
+        //                                                 {chair}
+        //                                             </span>
+        //                                         ))}
+        //                                     </div>
+        //                                 </div>
 
-                                        <div className="space-y-2">
-                                            <div className="flex items-center gap-2 text-gray-400 text-sm mb-2">
-                                                <ChevronRight className="w-4 h-4" />
-                                                <span className="uppercase tracking-wider font-semibold">Topics</span>
-                                            </div>
+        //                                 <div className="space-y-2">
+        //                                     <div className="flex items-center gap-2 text-gray-400 text-sm mb-2">
+        //                                         <ChevronRight className="w-4 h-4" />
+        //                                         <span className="uppercase tracking-wider font-semibold">Topics</span>
+        //                                     </div>
 
-                                            <AnimatePresence>
-                                                {true ? (
-                                                    <motion.div
-                                                        initial={{ opacity: 0, height: 0 }}
-                                                        animate={{ opacity: 1, height: 'auto' }}
-                                                        exit={{ opacity: 0, height: 0 }}
-                                                        className="space-y-3"
-                                                    >
-                                                        {committee.topics.map((topic, idx) => (
-                                                            <motion.div
-                                                                key={idx}
-                                                                initial={{ opacity: 0, x: -20 }}
-                                                                animate={{ opacity: 1, x: 0 }}
-                                                                transition={{ delay: idx * 0.1 }}
-                                                                className={`p-3 rounded-lg ${committee.bgColor} border ${committee.borderColor}`}
-                                                            >
-                                                                <span className="text-gray-300 text-sm">
-                                                                    <span className={`font-bold bg-gradient-to-r ${committee.color} bg-clip-text text-transparent`}>
-                                                                        Topic {idx + 1}:{' '}
-                                                                    </span>
-                                                                    {topic}
-                                                                </span>
-                                                            </motion.div>
-                                                        ))}
-                                                    </motion.div>
-                                                ) : (
-                                                    <motion.div
-                                                        initial={{ opacity: 0 }}
-                                                        animate={{ opacity: 1 }}
-                                                        className="space-y-2"
-                                                    >
-                                                        {committee.topics.slice(0, 1).map((topic, idx) => (
-                                                            <div key={idx} className="text-gray-400 text-sm line-clamp-2">
-                                                                {topic}
-                                                            </div>
-                                                        ))}
-                                                        <span className={`inline-flex items-center gap-1 text-sm font-medium bg-gradient-to-r ${committee.color} bg-clip-text text-transparent`}>
-                                                            +1 more topic
-                                                            <ChevronRight className="w-4 h-4" />
-                                                        </span>
-                                                    </motion.div>
-                                                )}
-                                            </AnimatePresence>
-                                        </div>
+        //                                     <AnimatePresence>
+        //                                         {true ? (
+        //                                             <motion.div
+        //                                                 initial={{ opacity: 0, height: 0 }}
+        //                                                 animate={{ opacity: 1, height: 'auto' }}
+        //                                                 exit={{ opacity: 0, height: 0 }}
+        //                                                 className="space-y-3"
+        //                                             >
+        //                                                 {committee.topics.map((topic, idx) => (
+        //                                                     <motion.div
+        //                                                         key={idx}
+        //                                                         initial={{ opacity: 0, x: -20 }}
+        //                                                         animate={{ opacity: 1, x: 0 }}
+        //                                                         transition={{ delay: idx * 0.1 }}
+        //                                                         className={`p-3 rounded-lg ${committee.bgColor} border ${committee.borderColor}`}
+        //                                                     >
+        //                                                         <span className="text-gray-300 text-sm">
+        //                                                             <span className={`font-bold bg-gradient-to-r ${committee.color} bg-clip-text text-transparent`}>
+        //                                                                 Topic {idx + 1}:{' '}
+        //                                                             </span>
+        //                                                             {topic}
+        //                                                         </span>
+        //                                                     </motion.div>
+        //                                                 ))}
+        //                                             </motion.div>
+        //                                         ) : (
+        //                                             <motion.div
+        //                                                 initial={{ opacity: 0 }}
+        //                                                 animate={{ opacity: 1 }}
+        //                                                 className="space-y-2"
+        //                                             >
+        //                                                 {committee.topics.slice(0, 1).map((topic, idx) => (
+        //                                                     <div key={idx} className="text-gray-400 text-sm line-clamp-2">
+        //                                                         {topic}
+        //                                                     </div>
+        //                                                 ))}
+        //                                                 <span className={`inline-flex items-center gap-1 text-sm font-medium bg-gradient-to-r ${committee.color} bg-clip-text text-transparent`}>
+        //                                                     +1 more topic
+        //                                                     <ChevronRight className="w-4 h-4" />
+        //                                                 </span>
+        //                                             </motion.div>
+        //                                         )}
+        //                                     </AnimatePresence>
+        //                                 </div>
 
-                                        <motion.div
-                                            className="mt-4 flex justify-center"
-                                            animate={{ y: isHovered ? 5 : 0 }}
-                                        >
-                                            <div className={`w-8 h-1 rounded-full bg-gradient-to-r ${committee.color} opacity-50`} />
-                                        </motion.div>
-                                    </div>
-                                </div>
-                            </motion.div>
-                        );
-                    })}
-                </motion.div>
+        //                                 <motion.div
+        //                                     className="mt-4 flex justify-center"
+        //                                     animate={{ y: isHovered ? 5 : 0 }}
+        //                                 >
+        //                                     <div className={`w-8 h-1 rounded-full bg-gradient-to-r ${committee.color} opacity-50`} />
+        //                                 </motion.div>
+        //                             </div>
+        //                         </div>
+        //                     </motion.div>
+        //                 );
+        //             })}
+        //         </motion.div>
 
               
-            </div>
+        //     </div>
+        // </section>
+               <section 
+            ref={ref}
+            className="flex flex-col justify-center py-20 md:py-32 bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden min-h-screen"
+        >
+            <Navigation />
+            <img src={"/committeesAndIssues1.jpeg"} />
+            <img src={"/committeesAndIssues2.jpeg"} />
+            <img src={"/committeesAndIssues3.jpeg"} />
+  
+       
         </section>
     );
 };
